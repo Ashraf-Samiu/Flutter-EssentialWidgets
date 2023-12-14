@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-///NavigationDrawer
+///End-Drawer
 void main(){
   runApp(const MyApp());
 }
@@ -26,15 +26,15 @@ class HomeActivity extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Test Application"),
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
-              padding: const EdgeInsets.all(0),
                 child: UserAccountsDrawerHeader(
-                    accountName: const Text("Ashraf"),
-                    accountEmail: const Text("ashrafhossainsamiu@gmail.com"),
-                    currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png"),
+                    decoration: BoxDecoration(color: Colors.red),
+                    accountName: Text("Ashraf Samiu"),
+                    accountEmail: Text("ashrafhossainsamiu@gmail.com"),
+                    currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png")
                 ),
             ),
             ListTile(leading: Icon(Icons.home),title: Text("Home"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is Home", context);}),
