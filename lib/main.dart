@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-///FloatingActionButton
+///BottomTabNavigation
 void main(){
   runApp(const MyApp());
 }
@@ -27,13 +27,24 @@ class HomeActivity extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Test Application"),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
-        elevation: 10,
-          child: const Icon(Icons.add),
-          onPressed: (){
-            mySnackBar("This is a Floating Example", context);
-          }),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.amber,
+        currentIndex: 1,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            BottomNavigationBarItem(icon: Icon(Icons.email), label: "Contact")
+          ],
+        onTap: (int index){
+          if(index==0){
+            mySnackBar("This is Home", context);
+          }else if(index==1){
+            mySnackBar("this is profile", context);
+          }else if(index==2){
+            mySnackBar("This is contract", context);
+          }
+        },
+      ),
     );
   }
 
