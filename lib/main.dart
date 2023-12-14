@@ -32,6 +32,7 @@ class HomeActivity extends StatelessWidget{
             DrawerHeader(
               padding: const EdgeInsets.all(0),
                 child: UserAccountsDrawerHeader(
+                    decoration: const BoxDecoration(color: Colors.purple),
                     accountName: const Text("Ashraf"),
                     accountEmail: const Text("ashrafhossainsamiu@gmail.com"),
                     currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png"),
