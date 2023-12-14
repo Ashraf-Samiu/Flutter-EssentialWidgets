@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-///BottomTabNavigation
+///NavigationDrawer
 void main(){
   runApp(const MyApp());
 }
@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Application Title",
       home: HomeActivity(),
     );
   }
@@ -27,23 +26,23 @@ class HomeActivity extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Test Application"),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.amber,
-        currentIndex: 1,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-            BottomNavigationBarItem(icon: Icon(Icons.email), label: "Contact")
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: const EdgeInsets.all(0),
+                child: UserAccountsDrawerHeader(
+                    accountName: const Text("Ashraf"),
+                    accountEmail: const Text("ashrafhossainsamiu@gmail.com"),
+                    currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png"),
+                ),
+            ),
+            ListTile(leading: Icon(Icons.home),title: Text("Home"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is Home", context);}),
+            ListTile(leading: Icon(Icons.person),title: Text("Profile"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is profile", context);}),
+            ListTile(leading: Icon(Icons.email),title: Text("Email"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is email", context);}),
+            ListTile(leading: Icon(Icons.settings),title: Text("Settings"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is settings", context);})
           ],
-        onTap: (int index){
-          if(index==0){
-            mySnackBar("This is Home", context);
-          }else if(index==1){
-            mySnackBar("this is profile", context);
-          }else if(index==2){
-            mySnackBar("This is contract", context);
-          }
-        },
+        ),
       ),
     );
   }
