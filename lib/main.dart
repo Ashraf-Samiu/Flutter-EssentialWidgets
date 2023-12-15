@@ -34,19 +34,36 @@ class HomeScreen extends StatelessWidget{
       body: Center(
         child: Column(
           children: [
-            Image.network(
-                "https://t4.ftcdn.net/jpg/02/44/43/69/360_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
-                width: 200,
-                height: 300,
-                fit: BoxFit.scaleDown,
-                repeat: ImageRepeat.repeatY,///will work only when it is in scaleDown fit
-            ),
-            Image.asset(
-              "images/234.jpg",
-              height: 300,
-              width: 400,
-              fit: BoxFit.cover,
-            )
+            RichText(text: TextSpan(
+              text: "Hello World! ",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+              children: [
+                TextSpan(
+                  text: "I ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15
+                  ),
+                ),
+                TextSpan(
+                  text: "am ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18
+                  ),
+                ),
+                TextSpan(
+                  text: "Programmer",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20
+                  )
+                )
+              ]
+            )),
           ],
         ),
       ),
