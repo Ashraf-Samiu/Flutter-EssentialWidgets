@@ -1,46 +1,70 @@
 import 'package:flutter/material.dart';
-///End-Drawer
+
 void main(){
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 class MyApp extends StatelessWidget{
-  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeActivity(),
+      home: HomeScreen(),
     );
   }
 }
-class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
-  mySnackBar(message,context){
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message))
-    );
-  }
+class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.purple,
       appBar: AppBar(
-        title: const Text("Test Application"),
+        backgroundColor: Colors.yellow,
+        centerTitle: true,
+        title: Text("Home",
+          style: TextStyle(
+            color: Colors.black54,
+          ),
+        ),
+        leading: Icon(
+          Icons.abc_rounded,
+          color: Colors.blue,
+          size: 30,
+        ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
+      body: Center(
+        child: Column(
           children: [
-            DrawerHeader(
-                child: UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(color: Colors.red),
-                    accountName: Text("Ashraf Samiu"),
-                    accountEmail: Text("ashrafhossainsamiu@gmail.com"),
-                    currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png")
-                ),
+            Text("Flutter is promising!",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.w800
+              ),
             ),
-            ListTile(leading: Icon(Icons.home),title: Text("Home"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is Home", context);}),
-            ListTile(leading: Icon(Icons.person),title: Text("Profile"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is profile", context);}),
-            ListTile(leading: Icon(Icons.email),title: Text("Email"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is email", context);}),
-            ListTile(leading: Icon(Icons.settings),title: Text("Settings"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is settings", context);})
+            Text("Hello Programming world! Remember we are all coders we have to code every single day",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                backgroundColor: Colors.green,
+                decoration: TextDecoration.lineThrough,
+                wordSpacing: 3,
+                letterSpacing: 5,
+                overflow: TextOverflow.ellipsis
+              ),
+            ),
+            Text("Hello Flutter!",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 21,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            Icon(
+              Icons.access_alarm,
+              color: Colors.amberAccent,
+              size: 20,
+            )
           ],
         ),
       ),
