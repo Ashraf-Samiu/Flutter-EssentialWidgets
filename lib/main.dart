@@ -34,36 +34,18 @@ class HomeScreen extends StatelessWidget{
       body: Center(
         child: Column(
           children: [
-            Text("Flutter is promising!",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.w800
-              ),
+            Image.network(
+                "https://t4.ftcdn.net/jpg/02/44/43/69/360_F_244436923_vkMe10KKKiw5bjhZeRDT05moxWcPpdmb.jpg",
+                width: 200,
+                height: 300,
+                fit: BoxFit.scaleDown,
+                repeat: ImageRepeat.repeatY,///will work only when it is in scaleDown fit
             ),
-            Text("Hello Programming world! Remember we are all coders we have to code every single day",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                backgroundColor: Colors.green,
-                decoration: TextDecoration.lineThrough,
-                wordSpacing: 3,
-                letterSpacing: 5,
-                overflow: TextOverflow.ellipsis
-              ),
-            ),
-            Text("Hello Flutter!",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 21,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            Icon(
-              Icons.access_alarm,
-              color: Colors.amberAccent,
-              size: 20,
+            Image.asset(
+              "images/234.jpg",
+              height: 300,
+              width: 400,
+              fit: BoxFit.cover,
             )
           ],
         ),
