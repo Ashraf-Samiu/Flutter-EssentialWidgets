@@ -20,20 +20,25 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Profile",),
       ),
-      body: Container(
-        height: 300,
-        width: 200,
-        child: Text("Hello Programmer!"),
-        alignment: Alignment.center,
-        margin: EdgeInsets.fromLTRB(10, 20, 30, 40),
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          border: Border.all(
-            color: Colors.black,
-            width: 5
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            width: 100,
+            height: 100,
+            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
           ),
-        ),
+          Container(
+            width: 100,
+            height: 100,
+            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
+          )
+        ],
       ),
     );
   }
