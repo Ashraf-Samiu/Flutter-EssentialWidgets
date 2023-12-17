@@ -18,48 +18,22 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text("Profile",),
       ),
-      body: Column(
-        children: [
-          RichText(text: TextSpan(
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.blue,
-            ),
-            children: [
-              TextSpan(
-                text: "Hello ",
-              ),
-              TextSpan(
-                text: "Programmer ",
-                style: TextStyle(
-                  color: Colors.red,
-                ),
-              ),
-              TextSpan(
-                text: "Write Clean Code!",
-                style: TextStyle(
-                  color: Colors.amberAccent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800
-                )
-              ),
-            ]
-          )),
-          RichText(text: TextSpan(
-            text: "To Register, Tap On ",
-            children: [
-              TextSpan(
-                text: "Sign Up",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                )
-              )
-            ]
-          ))
-        ],
+      body: Container(
+        height: 300,
+        width: 200,
+        child: Text("Hello Programmer!"),
+        alignment: Alignment.center,
+        margin: EdgeInsets.fromLTRB(10, 20, 30, 40),
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          border: Border.all(
+            color: Colors.black,
+            width: 5
+          ),
+        ),
       ),
     );
   }
