@@ -21,35 +21,54 @@ class HomeScreen extends StatelessWidget{
   }
   @override
   Widget build(BuildContext context) {
-    var buttonStyle= ElevatedButton.styleFrom(
-      backgroundColor: Colors.green,
-      foregroundColor: Colors.black,
-      padding: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20)
-        )
-      )
+    ButtonStyle buttonStyle= ElevatedButton.styleFrom(
+      minimumSize: Size(double.infinity, 60)
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile",),
+        title: Text("Profile"),
+        centerTitle: true,
       ),
-      body: Row(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          TextButton(
-              onPressed: (){mySnackBar("This is text button", context);},
-              child: Text("TextButton")
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "First Name",
+                border: OutlineInputBorder()
+              ),
+            ),
           ),
-          ElevatedButton(
-              onPressed: (){mySnackBar("This is Elevated button", context);},
-              child: Text("ElevatedButton"),
-              style: buttonStyle,
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Last Name",
+                  border: OutlineInputBorder()
+                ),
+              ),
           ),
-          OutlinedButton(
-              onPressed: (){mySnackBar("This is Outlined button", context);},
-              child: Text("OutlinedButton")
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Email Address",
+                  border: OutlineInputBorder()
+                ),
+              ),
           ),
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: (){
+                    mySnackBar("form has been submitted!", context);
+                  },
+                  child: Text("Submit Information"),
+                  style: buttonStyle,
+              ),
+          )
         ],
       ),
     );
