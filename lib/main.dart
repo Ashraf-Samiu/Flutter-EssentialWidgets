@@ -14,30 +14,42 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeScreen extends StatelessWidget{
+  mySnackBar(message,context){
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
   @override
   Widget build(BuildContext context) {
+    var buttonStyle= ElevatedButton.styleFrom(
+      backgroundColor: Colors.green,
+      foregroundColor: Colors.black,
+      padding: EdgeInsets.all(20),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20)
+        )
+      )
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile",),
       ),
       body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
+          TextButton(
+              onPressed: (){mySnackBar("This is text button", context);},
+              child: Text("TextButton")
           ),
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
+          ElevatedButton(
+              onPressed: (){mySnackBar("This is Elevated button", context);},
+              child: Text("ElevatedButton"),
+              style: buttonStyle,
           ),
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
-          )
+          OutlinedButton(
+              onPressed: (){mySnackBar("This is Outlined button", context);},
+              child: Text("OutlinedButton")
+          ),
         ],
       ),
     );
