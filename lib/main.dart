@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Profile",),
       ),
-      body: Column(
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
