@@ -21,15 +21,13 @@ class HomeScreen extends StatelessWidget{
   }
   @override
   Widget build(BuildContext context) {
-    var buttonStyle= ElevatedButton.styleFrom(
-      backgroundColor: Colors.green,
-      foregroundColor: Colors.black,
-      padding: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20)
+    var buttonStyle = ElevatedButton.styleFrom(
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.blue,
+        padding: EdgeInsets.all(20),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))
         )
-      )
     );
     return Scaffold(
       appBar: AppBar(
