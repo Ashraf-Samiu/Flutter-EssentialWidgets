@@ -31,11 +31,31 @@ class HomeActivity extends StatelessWidget{
         toolbarOpacity: 0.7,
         elevation: 10,
         actions: [
-          IconButton(onPressed: () {mySnackBar("this is email", context);},icon: const Icon(Icons.email)),
-          IconButton(onPressed: (){mySnackBar("this is search", context);}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: (){mySnackBar("this is comment ", context);}, icon: const Icon(Icons.comment)),
-          IconButton(onPressed: (){mySnackBar("This is settings", context);}, icon: const Icon(Icons.settings)),
-          IconButton(onPressed: (){mySnackBar("This is profile", context);}, icon: const Icon(Icons.person))
+          IconButton(
+              onPressed: () {
+                mySnackBar("this is email", context);},
+                icon: const Icon(Icons.email)
+          ),
+          IconButton(
+              onPressed: (){
+                mySnackBar("this is search", context);},
+                icon: const Icon(Icons.search)
+          ),
+          IconButton(
+              onPressed: (){
+                mySnackBar("this is comment ", context);},
+                icon: const Icon(Icons.comment)
+          ),
+          IconButton(
+              onPressed: (){
+                mySnackBar("This is settings", context);},
+                icon: const Icon(Icons.settings)
+          ),
+          IconButton(
+              onPressed: (){
+                mySnackBar("This is profile", context);},
+                icon: const Icon(Icons.person)
+          )
         ],
       ),
     );
