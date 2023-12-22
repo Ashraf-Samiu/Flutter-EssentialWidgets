@@ -31,9 +31,15 @@ class HomeActivity extends StatelessWidget{
         backgroundColor: Colors.amber,
         currentIndex: 1,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-            BottomNavigationBarItem(icon: Icon(Icons.email), label: "Contact")
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: "Profile"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.email),
+                label: "Contact")
           ],
         onTap: (int index){
           if(index==0){
