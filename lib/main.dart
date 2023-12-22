@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Container",
+      title: "Alert Dialogue",
       home: HomeScreen(),
     );
   }
@@ -19,36 +19,43 @@ class HomeScreen extends StatelessWidget{
       SnackBar(content: Text(message))
     );
   }
+  myAlertDialog(context){
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return Expanded(
+              child: AlertDialog(
+                title: Text("Alert!"),
+                content: Text("Want to Delete?"),
+                actions: [
+                  TextButton(
+                      onPressed: (){
+                          mySnackBar("deleted", context);
+                          Navigator.of(context).pop();
+                        },child: Text("Yes")
+                  ),
+                  TextButton(
+                      onPressed: (){
+                        Navigator.of(context).pop();
+                      }, child: Text("No")),
+                ],
+          ));
+        });
+  }
   @override
   Widget build(BuildContext context) {
-    var buttonStyle= ElevatedButton.styleFrom(
-      backgroundColor: Colors.green,
-      foregroundColor: Colors.black,
-      padding: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20)
-        )
-      )
-    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile",),
       ),
       body: Row(
         children: [
-          TextButton(
-              onPressed: (){mySnackBar("This is text button", context);},
-              child: Text("TextButton")
-          ),
           ElevatedButton(
-              onPressed: (){mySnackBar("This is Elevated button", context);},
+              onPressed: (){
+                myAlertDialog(context);
+              },
               child: Text("ElevatedButton"),
-              style: buttonStyle,
-          ),
-          OutlinedButton(
-              onPressed: (){mySnackBar("This is Outlined button", context);},
-              child: Text("OutlinedButton")
           ),
         ],
       ),
