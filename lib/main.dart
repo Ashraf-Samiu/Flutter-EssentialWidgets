@@ -25,6 +25,7 @@ class HomeActivity extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text("Test Application"),
+        backgroundColor: Colors.red,
         titleSpacing: 50,
         centerTitle: true,
         toolbarHeight: 60,
