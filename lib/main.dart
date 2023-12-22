@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget{
           Text("Hello Dart!"),
           Text("Hello Flutter!"),
           Row(
-            ///row takes the full line it don't take any vertical place
+            ///row takes the full line it don't take any vertical place when it's under the Column widget
             ///it works horizentally where x axis is mainAxis and y axis is crossAxis
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
