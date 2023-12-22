@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(MyApplication());
 }
-class MyApp extends StatelessWidget{
+class MyApplication extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
       debugShowCheckedModeBanner: false,
-      title: "Container",
+      title: "Practice Project",
       home: HomeScreen(),
     );
   }
@@ -18,28 +24,39 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile",),
+        backgroundColor: Colors.green,
+        centerTitle: true,
+        title: Text("Home",
+          style: TextStyle(
+            color: Colors.white
+          ),
+        ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        ///columns takes full access of the but it's children only takes the their own places
+        ///it works vertically where y axis is mainAxis and x axis is crossAxis
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            child: Image.network("https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2023/07/Designing-the-Product-Details-Page-67-scaled.jpg"),
+          Text("Hello World!"),
+          Text("Hello Programmer!"),
+          Text("Hello Dart!"),
+          Text("Hello Flutter!"),
+          Row(
+            ///row takes the full line it don't take any vertical place
+            ///it works horizentally where x axis is mainAxis and y axis is crossAxis
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("Hello "),
+              Text("programming "),
+              Text("World! "),
+              Text("Happy Coding")
+            ],
           )
         ],
       ),
     );
   }
+
 }
