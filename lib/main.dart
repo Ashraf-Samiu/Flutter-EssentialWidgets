@@ -37,10 +37,30 @@ class HomeActivity extends StatelessWidget{
                     currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:918/1*rb3JJRN2YfybijTcxQiiUQ.png")
                 ),
             ),
-            ListTile(leading: Icon(Icons.home),title: Text("Home"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is Home", context);}),
-            ListTile(leading: Icon(Icons.person),title: Text("Profile"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is profile", context);}),
-            ListTile(leading: Icon(Icons.email),title: Text("Email"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is email", context);}),
-            ListTile(leading: Icon(Icons.settings),title: Text("Settings"),trailing: Icon(Icons.add),onTap: (){mySnackBar("This is settings", context);})
+            ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+                trailing: Icon(Icons.add),
+                onTap: (){mySnackBar("This is Home", context);}
+            ),
+            ListTile(
+                leading: Icon(Icons.person),
+                title: Text("Profile"),
+                trailing: Icon(Icons.add),
+                onTap: (){mySnackBar("This is profile", context);}
+            ),
+            ListTile(
+                leading: Icon(Icons.email),
+                title: Text("Email"),
+                trailing: Icon(Icons.add),
+                onTap: (){mySnackBar("This is email", context);}
+            ),
+            ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("Settings"),
+                trailing: Icon(Icons.add),
+                onTap: (){mySnackBar("This is settings", context);}
+            )
           ],
         ),
       ),
