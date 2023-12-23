@@ -17,82 +17,26 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Navigation"),
-      ),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        ///passing data to constructor
-                        builder: (context)=> Activity1("Home to Activity-1")
-                    )
-                );
-              }, child: Text("Go to Activity-1"),
-          ),
-          ElevatedButton(onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context)=> Activity2("Home to Activity-2 ")
-                )
-            );
-          }, child: Text("Go to Activity-2"),
-          ),
-        ],
-      ),
-    );
-  }
-}
-class Activity1 extends StatelessWidget{
-      String message;
-      Activity1(
-        this.message,
-        {super.key}
-      );
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(message),
+        title: Text("Card"),
       ),
       body: Center(
-        child: ElevatedButton(
-            onPressed: (){
-              Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                      builder: (context)=> Activity2("Activity 1 to Activity 2")
-                  ),
-              );
-            }, child: Text("Go to Activity-2")),
-      ),
-    );
-  }
-}
-class Activity2 extends StatelessWidget{
-      String text;
-      Activity2(
-        this.text,
-        {super.key}
-      );
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(text),
-      ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: (){
-              Navigator.of(context).pop();
-              ///Or same process like previous One with the message Activity 2 to Activity 1
-            }, child: Text("Go to Activity-1")
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30)
+          ),
+          shadowColor: Color.fromRGBO(21, 23, 21, 1),
+          color: Color.fromARGB(1000, 200, 71, 100),
+          elevation: 50,
+          child: SizedBox(
+            height: 200,
+            width: 200,
+            child: Center(
+              child: Text("This is Card!"),
+            ),
+          ),
         ),
       ),
     );
   }
-  
+
 }
