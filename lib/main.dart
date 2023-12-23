@@ -32,7 +32,13 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Home"),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+          gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 5,
+              childAspectRatio: 1.2
+          ),
           itemCount: myItems.length,
           itemBuilder: (context,index){
             return GestureDetector(
@@ -40,7 +46,7 @@ class HomeScreen extends StatelessWidget{
                 mySnackBar(context, myItems[index]["title"]);
               },
               child: Container(
-                margin: EdgeInsets.all(20),
+                margin: EdgeInsets.all(6),
                 width: double.infinity,
                 height: 200,
                 child: Image.network(
