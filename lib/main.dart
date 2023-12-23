@@ -20,10 +20,10 @@ class HomeScreen extends StatelessWidget{
         title: Text("Card"),
       ),
       body: Center(
-        child: LinearProgressIndicator(
-          minHeight: 30,
+        child: Icon(
+          Icons.camera_alt,
+          size: 100,
           color: Colors.red,
-          backgroundColor: Colors.greenAccent,
         ),
       ),
     );
