@@ -20,10 +20,10 @@ class HomeScreen extends StatelessWidget{
         title: Text("Card"),
       ),
       body: Center(
-        child: CircularProgressIndicator(
-          color: Colors.blue,
-          strokeWidth: 10,
-          backgroundColor: Colors.green,
+        child: LinearProgressIndicator(
+          minHeight: 30,
+          color: Colors.red,
+          backgroundColor: Colors.greenAccent,
         ),
       ),
     );
