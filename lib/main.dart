@@ -13,19 +13,43 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeScreen extends StatelessWidget{
+  mySnackBar(context,message){
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
+  ///Json Array
+  var myItems= [
+    {"img": "https://cdn.hashnode.com/res/hashnode/image/upload/v1679571998369/3d121736-2637-43b7-ac55-d4370e57770d.png","title": "Ashraf"},
+    {"img": "https://cdn.hashnode.com/res/hashnode/image/upload/v1679571998369/3d121736-2637-43b7-ac55-d4370e57770d.png","title": "Karim"},
+    {"img": "https://cdn.hashnode.com/res/hashnode/image/upload/v1679571998369/3d121736-2637-43b7-ac55-d4370e57770d.png","title": "Rafiq"},
+    {"img": "https://cdn.hashnode.com/res/hashnode/image/upload/v1679571998369/3d121736-2637-43b7-ac55-d4370e57770d.png","title": "Shafiq"},
+    {"img": "https://cdn.hashnode.com/res/hashnode/image/upload/v1679571998369/3d121736-2637-43b7-ac55-d4370e57770d.png","title": "Sakib"}
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        centerTitle: true,
-        title: Text("Home",
-          style: TextStyle(
-            color: Colors.black54,
-          ),
-        ),
+        title: Text("Home"),
       ),
+      body: ListView.builder(
+          itemCount: myItems.length,
+          itemBuilder: (context,index){
+            return GestureDetector(
+              onTap: (){
+                mySnackBar(context, myItems[index]["title"]);
+              },
+              child: Container(
+                margin: EdgeInsets.all(20),
+                width: double.infinity,
+                height: 200,
+                child: Image.network(
+                  myItems[index]["img"]!,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            );
+          }),
     );
   }
-
 }
