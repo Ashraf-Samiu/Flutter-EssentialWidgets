@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/Fragment_Screen/ac_unit.dart';
-import 'package:flutter_widgets/Fragment_Screen/balance.dart';
-import 'package:flutter_widgets/Fragment_Screen/bussiness.dart';
-import 'package:flutter_widgets/Fragment_Screen/email.dart';
-import 'package:flutter_widgets/Fragment_Screen/home.dart';
-import 'package:flutter_widgets/Fragment_Screen/profile.dart';
-import 'package:flutter_widgets/Fragment_Screen/search.dart';
-import 'package:flutter_widgets/Fragment_Screen/settings.dart';
 
 void main(){
   runApp(MyApp());
@@ -23,59 +15,84 @@ class MyApp extends StatelessWidget{
 class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 8,
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text("Home"),
-              bottom: TabBar(
-                isScrollable: true,
-                  tabs: [
-                    Tab(
-                      icon: Icon(Icons.home),
-                      text: "Home",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.account_circle),
-                      text: "Profile",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.settings),
-                      text: "Settings",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.add_business),
-                      text: "Bussiness",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.search),
-                      text: "Search",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.email),
-                      text: "Email",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.ac_unit),
-                      text: "Ac-Unit",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.balance),
-                      text: "balance",
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Navigation"),
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        ///passing data to constructor
+                        builder: (context)=> Activity1("Home to Activity-1")
                     )
-                  ]
-              ),
-            ),
-            body: TabBarView(children: [
-              Home(),
-              Profile(),
-              Settings(),
-              Bussiness(),
-              Search(),
-              Email(),
-              Ac_unit(),
-              Balance()
-            ]),
-        ));
+                );
+              }, child: Text("Go to Activity-1"),
+          ),
+          ElevatedButton(onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=> Activity2("Home to Activity-2 ")
+                )
+            );
+          }, child: Text("Go to Activity-2"),
+          ),
+        ],
+      ),
+    );
   }
+}
+class Activity1 extends StatelessWidget{
+      String message;
+      Activity1(
+        this.message,
+        {super.key}
+      );
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(message),
+      ),
+      body: Center(
+        child: ElevatedButton(
+            onPressed: (){
+              Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                      builder: (context)=> Activity2("Activity 1 to Activity 2")
+                  ),
+              );
+            }, child: Text("Go to Activity-2")),
+      ),
+    );
+  }
+}
+class Activity2 extends StatelessWidget{
+      String text;
+      Activity2(
+        this.text,
+        {super.key}
+      );
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(text),
+      ),
+      body: Center(
+        child: ElevatedButton(
+            onPressed: (){
+              Navigator.of(context).pop();
+              ///Or same process like previous One with the message Activity 2 to Activity 1
+            }, child: Text("Go to Activity-1")
+        ),
+      ),
+    );
+  }
+  
 }
