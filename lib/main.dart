@@ -87,8 +87,11 @@ class Activity2 extends StatelessWidget{
       body: Center(
         child: ElevatedButton(
             onPressed: (){
-              Navigator.of(context).pop();
-              ///Or same process like previous One with the message Activity 2 to Activity 1
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context)=> Activity2("Activity 2 to Activity 1")));
+              ///Or Navigator.of(context).pop();
             }, child: Text("Go to Activity-1")
         ),
       ),
