@@ -90,7 +90,7 @@ class Activity2 extends StatelessWidget{
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context)=> Activity2("Activity 2 to Activity 1")));
+                      builder: (context)=> Activity1("Activity 2 to Activity 1")));
               ///Or Navigator.of(context).pop();
             }, child: Text("Go to Activity-1")
         ),
