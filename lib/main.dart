@@ -17,85 +17,76 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Navigation"),
+        title: Text("ButtonProperties"),
       ),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        ///passing data to constructor
-                        builder: (context)=> Activity1("Home to Activity-1")
-                    )
-                );
-              }, child: Text("Go to Activity-1"),
-          ),
-          ElevatedButton(onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context)=> Activity2("Home to Activity-2 ")
-                )
-            );
-          }, child: Text("Go to Activity-2"),
-          ),
-        ],
-      ),
-    );
-  }
-}
-class Activity1 extends StatelessWidget{
-      String message;
-      Activity1(
-        this.message,
-        {super.key}
-      );
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(message),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.redAccent,
+          foregroundColor: Colors.black,
+          child: Icon(Icons.add),
+          onPressed: (){
+            print("FAB button has been pressed!");
+          }),
       body: Center(
-        child: ElevatedButton(
-            onPressed: (){
-              Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                      builder: (context)=> Activity2("Activity 1 to Activity 2")
-                  ),
-              );
-            }, child: Text("Go to Activity-2")),
-      ),
-    );
-  }
-}
-class Activity2 extends StatelessWidget{
-      String text;
-      Activity2(
-        this.text,
-        {super.key}
-      );
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(text),
-      ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context)=> Activity1("Activity 2 to Activity 1")));
-              ///Or Navigator.of(context).pop();
-            }, child: Text("Go to Activity-1")
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.red,
+                minimumSize: Size(20, 20),
+                maximumSize: Size(200, 200),
+                textStyle: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 21,vertical: 20),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                  )
+                ), onPressed: (){
+                    print("Elevated Button has been pressed");
+                }, onLongPress: (){
+                    print("Elevated Button has been long pressed");
+                },
+                child: Text("Elevated Button")
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                foregroundColor: Colors.yellow,
+                textStyle: TextStyle(
+                    fontSize: 20,
+                  )
+                ),
+                onPressed: (){
+                    print("elevated button has been pressed");
+                }, onLongPress: (){
+                    print("elevated button has been longPressed");
+                 }, child: Text("Text Button"),
+            ),
+            IconButton(
+                onPressed: (){
+                  print("IconButton has been pressed");
+                }, icon: Icon(Icons.home)
+            ),
+            OutlinedButton(
+              onLongPress: (){
+                print("Outlined button has been long pressed");
+              }, onPressed: (){
+                  print("Outlined Button has been pressed");
+              }, child: Text("Outlined Button")
+            ),
+            FloatingActionButton(
+                onPressed: (){
+                  print("Floating action button has been pressed");
+                },child: Text("FAB"),
+            )
+          ],
         ),
       ),
     );
   }
-  
 }
