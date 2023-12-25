@@ -24,17 +24,17 @@ class HomeScreen extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ///it detects the contents..
-            GestureDetector(
+            ///it detects the contents with giving a reflection..
+            InkWell(
               onTap: (){
-                print("Tapped on the text");
+                print("tapped on hello world message");
               },
               onLongPress: (){
-                print("longPressed on the text");
+                print("long pressed on hello world message");
               },
               onDoubleTap: (){
-                print("doubleTapped on the text");
-              },child: Text("Simple text"),
+                print("Double pressed on hello world message");
+              },child: Text("hello World!"),
             )
           ],
         ),
