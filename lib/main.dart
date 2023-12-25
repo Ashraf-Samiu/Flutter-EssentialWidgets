@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ButtonProperties"),
+        title: Text("Container Properties"),
       ),
       body: Center(
         child: Column(
