@@ -13,99 +13,130 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeScreen extends StatelessWidget{
+  TextEditingController searchTextFieldController= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ButtonProperties"),
+        title: Text("TextField"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 200,
-              height: 200,
-              margin: EdgeInsets.only(top: 12,left: 23,right: 20,bottom: 15),
-              padding: EdgeInsets.all(20),
-              child: Text("Hello Flutter Community"),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                border: Border.all(
-                  color: Colors.black,
-                  width: 5,
-                  style: BorderStyle.solid
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                ///to take multiple input we have to use maxLines by default it's value-1
+                onTap: (){
+                  print("Password Tapped");
+                },
+                onChanged: (String input){
+                  print(input);
+                },
+                onSubmitted: (String value){
+                  print(searchTextFieldController.text);
+                  searchTextFieldController.clear();
+                },
+                controller: TextEditingController(),
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.search,
+                maxLines: 3,
+                style: TextStyle(
+                  color: Colors.grey
                 ),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(40)
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.redAccent,
-                    blurRadius: 5,
-                    offset: Offset(2, 3)
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.black,
+                  hintText: "Enter your Name",
+                  hintStyle: TextStyle(
+                      color: Colors.red
                   ),
-                  BoxShadow(
-                    color: Colors.lightBlue,
-                    blurRadius: 5,
-                    offset: Offset(3, 4)
+                  label: Text("Enter your Name please!"),
+                  labelStyle: TextStyle(
+                    color: Colors.purple
                   ),
-                  BoxShadow(
-                    color: Colors.purple,
-                    blurRadius: 2,
-                    offset: Offset(1, 3)
+                  prefixIcon: Icon(
+                    Icons.account_circle,
+                    color: Colors.red
+                  ),
+                  prefix: Text(
+                    "HI ",
+                    style: TextStyle(
+                      color: Colors.white
+                    ),
+                  ),
+                  suffixIcon: Icon(
+                    Icons.home,
+                    color: Colors.green,
+                  ),
+                  suffix: Text(
+                    "Hlw",
+                    style: TextStyle(
+                      color: Colors.blue
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.blue
+                    )
                   )
-                ]
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              height: 150,
-              alignment: Alignment.center,
-              child: Text("Hello Dart!!"),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                border: Border.all(
-                  color: Colors.greenAccent,
-                  width: 7,
-                  style: BorderStyle.solid
-                ),
-                shape: BoxShape.circle,
-              ),
+            SizedBox(
+              width: 10,
+              height: 10,
             ),
-            Container(
-              width: 200,
-              height: 150,
-              child: Text("Clean Code"),
-              alignment: Alignment.topRight,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.fromLTRB(5, 10, 6, 8),
-              decoration: BoxDecoration(
-                color: Colors.greenAccent,
-                border: Border.all(
-                  color: Colors.purple,
-                  width: 6
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: searchTextFieldController,
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.done,
+                obscureText: true,
+                style: TextStyle(
+                  color: Colors.white
                 ),
-                borderRadius: BorderRadius.circular(40),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.blue,
+                  hintText: "Enter your password",
+                  hintStyle: TextStyle(
+                    color: Colors.red
                   ),
-                  BoxShadow(
-                    color: Colors.red,
-                    blurRadius: 10
+                  label: Text("Enter your password please!"),
+                  labelStyle: TextStyle(
+                    color: Colors.purple
                   ),
-                  BoxShadow(
-                    color: Colors.purple,
-                    blurRadius: 8,
-                    offset: Offset(4, 6)
+                  prefixIcon: Icon(
+                    Icons.dangerous,
+                    color: Colors.greenAccent,
+                  ),
+                  suffixIcon: Icon(
+                    Icons.camera,
+                    color: Colors.brown,
+                  ),
+                  border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.purple,
+                      width: 5
+                    ),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.deepOrange,
+                      width: 5
+                    )
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 5
+                    )
                   )
-                ]
+                ),
               ),
             ),
           ],
