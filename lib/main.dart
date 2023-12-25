@@ -19,71 +19,95 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("ButtonProperties"),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.redAccent,
-          foregroundColor: Colors.black,
-          child: Icon(Icons.add),
-          onPressed: (){
-            print("FAB button has been pressed!");
-          }),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.red,
-                minimumSize: Size(20, 20),
-                maximumSize: Size(200, 200),
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+            Container(
+              width: 200,
+              height: 200,
+              margin: EdgeInsets.only(top: 12,left: 23,right: 20,bottom: 15),
+              padding: EdgeInsets.all(20),
+              child: Text("Hello Flutter Community"),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 5,
+                  style: BorderStyle.solid
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 21,vertical: 20),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)
-                  )
-                ), onPressed: (){
-                    print("Elevated Button has been pressed");
-                }, onLongPress: (){
-                    print("Elevated Button has been long pressed");
-                },
-                child: Text("Elevated Button")
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.redAccent,
-                foregroundColor: Colors.yellow,
-                textStyle: TextStyle(
-                    fontSize: 20,
-                  )
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(40)
                 ),
-                onPressed: (){
-                    print("elevated button has been pressed");
-                }, onLongPress: (){
-                    print("elevated button has been longPressed");
-                 }, child: Text("Text Button"),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.redAccent,
+                    blurRadius: 5,
+                    offset: Offset(2, 3)
+                  ),
+                  BoxShadow(
+                    color: Colors.lightBlue,
+                    blurRadius: 5,
+                    offset: Offset(3, 4)
+                  ),
+                  BoxShadow(
+                    color: Colors.purple,
+                    blurRadius: 2,
+                    offset: Offset(1, 3)
+                  )
+                ]
+              ),
             ),
-            IconButton(
-                onPressed: (){
-                  print("IconButton has been pressed");
-                }, icon: Icon(Icons.home)
+            Container(
+              width: 200,
+              height: 150,
+              alignment: Alignment.center,
+              child: Text("Hello Dart!!"),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                border: Border.all(
+                  color: Colors.greenAccent,
+                  width: 7,
+                  style: BorderStyle.solid
+                ),
+                shape: BoxShape.circle,
+              ),
             ),
-            OutlinedButton(
-              onLongPress: (){
-                print("Outlined button has been long pressed");
-              }, onPressed: (){
-                  print("Outlined Button has been pressed");
-              }, child: Text("Outlined Button")
+            Container(
+              width: 200,
+              height: 150,
+              child: Text("Clean Code"),
+              alignment: Alignment.topRight,
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.fromLTRB(5, 10, 6, 8),
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                border: Border.all(
+                  color: Colors.purple,
+                  width: 6
+                ),
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 5
+                  ),
+                  BoxShadow(
+                    color: Colors.red,
+                    blurRadius: 10
+                  ),
+                  BoxShadow(
+                    color: Colors.purple,
+                    blurRadius: 8,
+                    offset: Offset(4, 6)
+                  )
+                ]
+              ),
             ),
-            FloatingActionButton(
-                onPressed: (){
-                  print("Floating action button has been pressed");
-                },child: Text("FAB"),
-            )
           ],
         ),
       ),
