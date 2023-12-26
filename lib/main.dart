@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget{
         title: Text("Essential Widgets"),
       ),
       body: GridView(
+          scrollDirection: Axis.horizontal,
           gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
