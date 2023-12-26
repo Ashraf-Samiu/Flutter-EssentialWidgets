@@ -40,9 +40,12 @@ class HomeScreen extends StatelessWidget{
                     });
               },child: Text('Tap here'),
             ),
+            ElevatedButton(onPressed: (){
+                showAboutDialog(context: context);
+              }, child: Text("Tap")
+            ),
             ElevatedButton(
                 onPressed: (){
-                    showAboutDialog(context: context,);
                     showDialog(context: context, builder: (context) {
                      return AlertDialog(
                         title: Text('Message'),
