@@ -13,31 +13,37 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeScreen extends StatelessWidget{
-  TextEditingController searchTextFieldController= TextEditingController();
+  mySnackBar(context,message){
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("TextField"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ///it detects the contents with giving a reflection..
-            InkWell(
-              onTap: (){
-                print("tapped on hello world message");
-              },
-              onLongPress: (){
-                print("long pressed on hello world message");
-              },
-              onDoubleTap: (){
-                print("Double pressed on hello world message");
-              },child: Text("hello World!"),
-            )
-          ],
-        ),
+      body: ListView(
+        ///it gives the facility of scrolling
+        ///it will add a manual scroller
+        //singleChildScrollView will solve the row&column overflow issues..
+        scrollDirection: Axis.horizontal,
+        children: [
+          Text("Prgramming, "),
+          Text("Dart, "),
+          Text("Flutter, "),
+          Text("Rest Api, "),
+          Text("Food delivery App, "),
+          Text("E-commerce App, "),
+          Text("TODO App, "),
+          Text("Quiz App, "),
+          Text("Grocery Shop App, "),
+          Text("Task Manager App, "),
+          Text("BMI calculator App, "),
+          Text("Counter App, "),
+          Text("Sum App "),
+        ],
       ),
     );
   }
