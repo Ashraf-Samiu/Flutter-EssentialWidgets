@@ -31,29 +31,32 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Essential Widgets"),
       ),
-      body: Scrollbar(
-        thickness: 15,
-        radius: Radius.circular(15),
-        child: ListView.separated(
-            itemCount: students.length,
+      body: ListView.separated(
+            itemCount: 100,
             itemBuilder: (context,index){
               return ListTile(
                 leading: Icon(Icons.star),
                 trailing: Icon(Icons.safety_check),
-                title: Text(students[index]),
+                title: Text("$students-$index"),
                 subtitle: Text("StudentName"),
               );
             },
             separatorBuilder: (context,index){
-              return Divider(
-                height: 24,
-                thickness: 5,
-                color: Colors.red,
-                indent: 16,
-                endIndent: 16,
+              return Column(
+                children: [
+                  Text(
+                    index.toString()
+                  ),
+                  Divider(
+                    height: 24,
+                    thickness: 5,
+                    color: Colors.red,
+                    indent: 16,
+                    endIndent: 16,
+                  )
+                ],
               );
             }),
-      ),
     );
   }
 }
