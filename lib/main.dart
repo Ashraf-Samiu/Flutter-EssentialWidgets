@@ -13,38 +13,56 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeScreen extends StatelessWidget{
+  mySnackBar(context,message){
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message))
+    );
+  }
+  var myItems = [
+    {"Name": "Ashraf", "Age": "20", "Address": "Dhaka City", "Country": "Bangladesh"},
+    {"Name": "John", "Age": "25", "Address": "New York", "Country": "USA"},
+    {"Name": "Emma", "Age": "22", "Address": "London", "Country": "UK"},
+    {"Name": "Carlos", "Age": "30", "Address": "Madrid", "Country": "Spain"},
+    {"Name": "Yuki", "Age": "28", "Address": "Tokyo", "Country": "Japan"},
+    {"Name": "Mia", "Age": "24", "Address": "Sydney", "Country": "Australia"},
+    {"Name": "Pablo", "Age": "26", "Address": "Buenos Aires", "Country": "Argentina"},
+    {"Name": "Lily", "Age": "23", "Address": "Paris", "Country": "France"},
+    {"Name": "Ravi", "Age": "27", "Address": "Mumbai", "Country": "India"},
+    {"Name": "Chen", "Age": "29", "Address": "Beijing", "Country": "China"},
+    {"Name": "Olga", "Age": "31", "Address": "Moscow", "Country": "Russia"},
+    {"Name": "Diego", "Age": "32", "Address": "Mexico City", "Country": "Mexico"},
+    {"Name": "Aisha", "Age": "21", "Address": "Cairo", "Country": "Egypt"},
+    {"Name": "Matteo", "Age": "33", "Address": "Rome", "Country": "Italy"},
+    {"Name": "Sofia", "Age": "26", "Address": "Athens", "Country": "Greece"},
+    {"Name": "Harun", "Age": "24", "Address": "Seoul", "Country": "South Korea"},
+    {"Name": "Zara", "Age": "22", "Address": "Dubai", "Country": "UAE"},
+    {"Name": "Isaac", "Age": "29", "Address": "Toronto", "Country": "Canada"},
+    {"Name": "Nina", "Age": "27", "Address": "Berlin", "Country": "Germany"},
+    {"Name": "Lucas", "Age": "28", "Address": "Sao Paulo", "Country": "Brazil"}
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Essential Widgets"),
       ),
-      body: GridView(
-          scrollDirection: Axis.horizontal,
-          gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(
+      body: GridView.builder(
+          itemCount: myItems.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 1
           ),
-          children: [
-            Icon(Icons.ac_unit),
-            Icon(Icons.account_box),
-            Icon(Icons.ac_unit_sharp),
-            Icon(Icons.account_box_sharp),
-            Text("Hello!"),
-            Text("Programming"),
-            Text("Dart"),
-            Text("Flutter"),
-            Text("Counter App"),
-            Text("Sum App"),
-            Text("Quiz App"),
-            Text("Water Tracker App"),
-            Text("Task Manager App"),
-            Text("CRUD App"),
-            Text("Grocery Shop App"),
-            Text("E-Commerce App")
-          ],
-      ),
+          itemBuilder: (context,index){
+            return InkWell(
+              onTap: (){
+                mySnackBar(context, myItems[index]["Name"]);
+              },
+              child: ListTile(
+                  leading: Icon(Icons.account_box_sharp),
+                  title: Text(myItems[index]["Name"]!),
+                  subtitle: Text(myItems[index]["Address"]!),
+              ),
+            );
+          }),
     );
   }
 }
