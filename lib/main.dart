@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TextField"),
+        title: Text("Static-ListView"),
       ),
       body: ListView(
         ///it gives the facility of scrolling
