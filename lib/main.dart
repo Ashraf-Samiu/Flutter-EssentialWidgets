@@ -44,10 +44,15 @@ class HomeScreen extends StatelessWidget{
       body: ListView.builder(
           itemCount: myItems.length,
           itemBuilder: (context,index){
-            return ListTile(
-              leading: Icon(Icons.star),
-              title: Text(myItems[index]["Name"]!),
-              subtitle: Text(myItems[index]["Address"]!),
+            return InkWell(
+              onTap: (){
+                print("Tapped");
+              },
+              child: ListTile(
+                leading: Icon(Icons.star),
+                title: Text(myItems[index]["Name"]!),
+                subtitle: Text(myItems[index]["Address"]!),
+              ),
             );
           }),
     );
