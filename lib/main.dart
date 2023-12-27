@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -7,61 +8,119 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: HomeRoute(),
     );
   }
 }
-class HomeScreen extends StatelessWidget{
+///Route
+class HomeRoute extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("Home",),
+        title: Text("Home"),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text("Home Screen"),
             ElevatedButton(
-              onPressed: () {
-                showModalBottomSheet(
-                    isDismissible: false,
-                    backgroundColor: Colors.yellow,
-                    barrierColor: Colors.pink.shade300,
-                    context: context,
-                    builder: (_) {
-                      return Column(
-                        children: [
-                          Text('Message'),
-                          Text('Hello world'),
-                        ],
-                      );
-                    });
-              },child: Text('Tap here'),
-            ),
-            ElevatedButton(onPressed: (){
-                showAboutDialog(context: context);
-              }, child: Text("Tap")
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: 
+                          (context) =>
+                              RouteSettings()
+                      )
+                  );
+                }, 
+                child: Text("Go to Settings")
             ),
             ElevatedButton(
                 onPressed: (){
-                    showDialog(context: context, builder: (context) {
-                     return AlertDialog(
-                        title: Text('Message'),
-                        content: Text('Hello, welcome to app'),
-                        actions: [
-                         ElevatedButton(onPressed: () {},
-                           child: Text('cancel'),
-                         ),
-                      ],
-                     );
-                   });
-                }, child: Text("Click Here!"))
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context)=>OrderScreen())
+                  );
+                },
+                  child: Text("Go to OrderScreen")
+              )
           ],
         ),
       ),
     );
   }
-
+}
+///Route
+class RouteSettings extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Settings Screen"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("settings Screen"),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.pushAndRemoveUntil(
+                      context, MaterialPageRoute(
+                      builder: (context)=>HomeRoute()
+                  ), (route) => false);
+                  ///true define backstack button will remain after going to the desired route
+                },
+                child: Text("Go to Home Screen")
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+///Route
+class OrderScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Order Screen"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Order Screen"),
+            ElevatedButton(
+              onPressed: (){
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context)=> RouteSettings()
+                    ));
+              },
+                child: Text("Go to Settings"),
+            ),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                child: Text("Back to Home")
+            ),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                child: Text("Go to SettingsScreen")
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
