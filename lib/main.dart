@@ -19,11 +19,7 @@ class HomeActivity extends StatelessWidget{
         title: Text("Home"),
       ),
       body: Center(
-       child: Column(
-         children: [
-           Text("Hello World!")
-         ],
-       ), 
+        child: Text("Hello World!"),
       ),
     );
   }
