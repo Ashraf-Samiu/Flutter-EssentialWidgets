@@ -16,10 +16,10 @@ class HomeActivity extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Code"),
       ),
       body: Center(
-        child: Text("Hello World!"),
+        child: Text("I have what needs to be done"),
       ),
     );
   }
