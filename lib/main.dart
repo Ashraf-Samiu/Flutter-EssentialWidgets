@@ -35,13 +35,10 @@ class HomeRoute extends StatelessWidget{
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder:
-                              (context) =>
-                              RouteSettings()
+                          builder: (context) => RouteSettings()
                       )
                   );
-                },
-                child: Text("Go to Settings")
+                }, child: Text("Go to Settings")
             ),
             ElevatedButton(
                 onPressed: (){
@@ -110,7 +107,7 @@ class OrderScreen extends StatelessWidget{
                         builder: (context)=> RouteSettings()
                     ));
               },
-              child: Text("Go to Settings"),
+              child: Text("'Go to Settings by replace'"),
             ),
             ElevatedButton(
                 onPressed: (){
