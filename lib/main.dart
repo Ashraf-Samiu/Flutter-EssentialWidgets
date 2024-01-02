@@ -18,9 +18,6 @@ class HomeActivity extends StatelessWidget{
       appBar: AppBar(
         title: Text("Code"),
       ),
-      body: Center(
-        child: Text("I have what needs to be done"),
-      ),
     );
   }
 }
