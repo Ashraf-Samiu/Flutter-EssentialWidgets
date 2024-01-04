@@ -1,43 +1,90 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(MyApp());
+///LifeCycle of State...
+
+///Constructor
+///CreateState
+///InitState
+
+///DidChangeDependencies- dependency change
+///build- setState
+///didUpdateWidget- change configuration of parent(like inheritance-if the parent value change child value will be changed)
+
+///deactivate
+///dispose
+
+class HomePage extends StatefulWidget {
+  ///widget itSelf...
+  const HomePage({super.key});
+
+  ///Short Form-
+  ///State<HomePage> createState() => _HomePageState();
+  @override
+  ///createState
+  State<StatefulWidget> createState() {
+    return _HomePageState();
+  }
 }
-class MyApp extends StatelessWidget{
+
+class _HomePageState extends State<HomePage> {
+  int count=0;
+
+  @override
+  void initState(){
+    ///we can override this abstract class if we wanna add something when app start
+    print("Initial State");
+    super.initState();
+  }
+
+  @override
+  void didChangeDependency(){
+    print("Did Change Dependency");
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomePage oldWidget){
+    print("did update widget");
+    super.didUpdateWidget(oldWidget);
+  }
+
   @override
   Widget build(BuildContext context) {
-    ///MaterialPackage components are usable in CupertinoApp
-    ///CupertinoApp is totally IOS system-based Design..
-    return CupertinoApp(
-      home: HomeScreen(),
+    print("Build Method");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Center(
+        child: Text(
+          count.toString(),
+          style: TextStyle(
+            fontSize: 24
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            count++;
+            /// setState will rebuild the screen where constant not available
+            setState(() {});
+          }),
     );
   }
-}
-class HomeScreen extends StatelessWidget{
+
   @override
-  Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-        ///In Ios There is no such things as appBar..the things that exist is NavigationBar
-        navigationBar: CupertinoNavigationBar(
-          middle: Text("Home"),
-          backgroundColor: Colors.grey,
-          leading: Icon(CupertinoIcons.home, size: 18),
-          trailing: Icon(CupertinoIcons.ant_circle),
-        ),
-        child: Column(
-          children: [
-            CupertinoButton(child: Text("Tap Here"), onPressed: (){}),
-            CupertinoButton.filled(child: Text("Click Here"), onPressed: (){}),
-            ElevatedButton(onPressed: (){}, child: Text("Click")),
-            CupertinoTabBar(items: [
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings)),
-              BottomNavigationBarItem(icon: Icon(CupertinoIcons.person))
-            ]),
-            CupertinoTextField(),
-          ],
-        ),
-     );
+  void deactivate(){
+    ///it is called when the widget is removed from the tree..
+    super.deactivate();
+    print("deactivate");
+  }
+
+  @override
+  void dispose(){
+    ///which will destroy/break the current App..
+    ///it is also called when the widget is removed permanently from the tree..
+    super.dispose();
+    print("dispose");
   }
 }
+
