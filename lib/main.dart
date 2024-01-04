@@ -59,7 +59,11 @@ class MyApp extends StatelessWidget{
             fontSize: 10
           ),
           ///we can take both body small and large by calling the themeData
-        )
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white
+        ),
       ),
       ///we can use only one if we use light the theme property will work
       ///but if we use dark the darkTheme property will work
@@ -97,6 +101,10 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         centerTitle: true,
         title: Text("Home",),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){},
+          child: Icon(Icons.account_box),
       ),
       body: Center(
         child: Column(
