@@ -20,6 +20,10 @@ import 'package:flutter/material.dart';
 ///deactivate
 ///dispose
 
+
+///stless is shortForm of Stateless
+///stful is shortForm of Stateful
+
 class HomePage extends StatefulWidget {
   ///widget itSelf...
   const HomePage({super.key});
