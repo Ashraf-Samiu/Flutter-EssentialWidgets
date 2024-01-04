@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
+/// Widget - two types
+/// Stateless - Immutable
+/// Stateful - Mutable
+
+/// Stateful - two component
+/// Widget
+/// State
+
 ///LifeCycle of State...
 
-///Constructor
 ///CreateState
 ///InitState
 
@@ -27,6 +34,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ///State of that Widget
   int count=0;
 
   @override
