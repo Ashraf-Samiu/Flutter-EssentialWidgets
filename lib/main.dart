@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 ///BottomTabNavigation
 void main(){
   runApp(const MyApp());
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget{
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application Title",
       home: HomeActivity(),
@@ -15,12 +16,13 @@ class MyApp extends StatelessWidget{
   }
 }
 class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
+
   mySnackBar(message,context){
     return ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(message))
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +30,30 @@ class HomeActivity extends StatelessWidget{
         title: const Text("Test Application"),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.amber,
-        currentIndex: 1,
+          elevation: 5,
+          backgroundColor: Colors.grey,
+          currentIndex: 1,
+          // selectedItemColor: Colors.lightGreen,
+          // unselectedItemColor: Colors.purpleAccent,
+          showSelectedLabels: true,///if we use false value the texts under the icon will disappear
+          showUnselectedLabels: true,///same as showSelectedLabel...selected refers to currentIndex
+          selectedFontSize: 15,
+          unselectedFontSize: 15,
+          ///we can take highest 3 bottomNavBar..
+          ///if we wanna use 4/5 the bottomNav will be disappeared..
+          ///but if we BottomNavigationType.fixed..more than 3 bottomTabNav will work without any issues..
+          type: BottomNavigationBarType.fixed,
+          selectedLabelStyle: TextStyle(
+            fontSize: 18,///will increase the space for label texts
+            color: Colors.purple,
+            fontWeight: FontWeight.bold
+          ),
+          unselectedLabelStyle: TextStyle(
+            fontSize: 18,///will do the same as selectedLabel..
+            color: Colors.black,
+            fontWeight: FontWeight.bold
+          ),
+          fixedColor: Colors.red,///it will work for the currentIndex..
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
@@ -39,7 +63,10 @@ class HomeActivity extends StatelessWidget{
                 label: "Profile"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.email),
-                label: "Contact")
+                label: "Contact"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle),
+                label: "Profile"),
           ],
         onTap: (int index){
           if(index==0){
@@ -48,6 +75,8 @@ class HomeActivity extends StatelessWidget{
             mySnackBar("this is profile", context);
           }else if(index==2){
             mySnackBar("This is contract", context);
+          }else if(index==3){
+            mySnackBar("This is Profile", context);
           }
         },
       ),
