@@ -25,10 +25,22 @@ class HomeScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 8,
+          animationDuration: Duration(microseconds: 300),
           child: Scaffold(
             appBar: AppBar(
               title: Text("Home"),
               bottom: TabBar(
+                indicator: UnderlineTabIndicator(
+                  borderSide: BorderSide(
+                    width: 6,
+                    color: Colors.white54
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                  insets: EdgeInsets.symmetric(horizontal: 80)
+                ),
+                unselectedLabelColor: Colors.grey,
+                labelColor: Colors.redAccent,
+                indicatorWeight: 5,
                 isScrollable: true,
                   tabs: [
                     Tab(
@@ -76,6 +88,6 @@ class HomeScreen extends StatelessWidget{
               Ac_unit(),
               Balance()
             ]),
-        ));
-  }
+          ));
+      }
 }
